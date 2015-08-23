@@ -1,0 +1,41 @@
+Top Airports by 2012/2013 - Analysis using Ladder Plot
+========================================================
+author: Sohail Iqbal
+date: Sunday, August 23, 2015
+
+Developing Data Products - Course Assignment
+
+
+Introduction
+========================================================
+This is my Shiny application for course assignment in which I used a simple dataset from Wikipedia (Source: <https://en.wikipedia.org/wiki/Suvarnabhumi_Airport#Traffic_and_statistics> and introduced ladder plot to analyze performance data with simple yet effective visualization.
+
+The ladder plot shows the relationship between the ranks of data in two or more columns. I have used `ggplot2` and `reshape2` libraries, to generate this plot.
+
+The application is live on Shiny servers at <https://ch3ckmat3.shinyapps.io/DDP-ShinyApp>. The source code of the application is available at <https://github.com/ch3ckmat3/DDP-ShinyApp/>.
+
+
+The Application
+========================================================
+The application uses simple Shiny UI and logic to present the
+visualization and data for analysis. Here is a screenshot of the final Shiny application:
+
+![Shiny App](app1.png)
+
+The Dataset
+========================================================
+Here is a sample of the data used in the application:
+```{r}
+ds <- read.csv("Airports.csv")
+head(ds, 2)
+```
+
+Sample Plot from Data
+========================================================
+Here is a plot showing relationship between passengers handled
+in the year 2012 and 2013:
+
+```{r, echo=FALSE}
+library(scales)
+plot(x=ds$Passengers.Handled.2012, y = ds$Passengers.Handled.2013, col = alpha("red", 0.6), pch=19)
+```
